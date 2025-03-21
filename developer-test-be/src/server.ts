@@ -99,7 +99,7 @@ const resolvers = {
 const app: Application = express();
 
 // Use CORS
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 // Set up Apollo Server
 const server = new ApolloServer({ typeDefs, resolvers });

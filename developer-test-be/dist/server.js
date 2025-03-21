@@ -100,7 +100,7 @@ const resolvers = {
 // Create an Express app
 const app = (0, express_1.default)();
 // Use CORS
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({ origin: "*" }));
 // Set up Apollo Server
 const server = new apollo_server_express_1.ApolloServer({ typeDefs, resolvers });
 // Start Apollo Server asynchronously
