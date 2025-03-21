@@ -119,7 +119,7 @@ export function Timeline({ goals }: TimelineProps) {
 
       {/* Floating Date Indicator */}
       {showIndicator && visibleDate && (
-        <div className="fixed top-16 right-4 z-50 px-3 py-1 bg-white shadow-md border rounded-md text-xs text-gray-600">
+        <div className="fixed top-1/2 right-4 z-50 px-3 py-1 bg-white shadow-md border rounded-md text-xs text-gray-600">
           {visibleDate}
         </div>
       )}
