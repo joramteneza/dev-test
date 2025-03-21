@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useQuery, gql } from '@apollo/client';
 import { ChevronLeft } from 'lucide-react';
@@ -52,12 +52,12 @@ const UserGoals: React.FC = () => {
     return (
         <div className="container mx-auto px-4 py-8 max-w-5xl">
             <div className="mb-8">
-                {/* <Link href="/"> */}
-                <Button variant="ghost" className="pl-0">
-                    <ChevronLeft className="mr-2 h-4 w-4" />
-                    Back to Users
-                </Button>
-                {/* </Link> */}
+                <Link to="/" key='home' >
+                    <Button variant="ghost" className="pl-0">
+                        <ChevronLeft className="mr-2 h-4 w-4" />
+                        Back to Users
+                    </Button>
+                </Link>
                 {/* <h1 className="text-3xl font-bold mt-4">{user?.name}'s Financial Goals</h1> */}
                 <p className="text-gray-600 mt-2">Timeline of financial and life milestones</p>
             </div>
