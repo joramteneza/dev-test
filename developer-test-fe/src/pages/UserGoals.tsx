@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useQuery, gql } from '@apollo/client';
 import { ChevronLeft } from 'lucide-react';
@@ -17,13 +17,13 @@ const GET_USER_GOALS = gql`
   }
 `;
 
-interface Goal {
-    id: string;
-    name: string;
-    description: string;
-    date: string;
-    color: string;
-}
+// interface Goal {
+//     id: string;
+//     name: string;
+//     description: string;
+//     date: string;
+//     color: string;
+// }
 
 const UserGoals: React.FC = () => {
     const { userId } = useParams<{ userId: string }>();  // Explicitly type the params here
