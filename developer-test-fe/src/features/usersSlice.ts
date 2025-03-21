@@ -27,7 +27,7 @@ export interface Data {
 export const usersApi = createApi({
     reducerPath: 'usersApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:4000/graphql', // Your GraphQL API endpoint
+        baseUrl: `${import.meta.env.VITE_BASE_URL}/graphql`, // Your GraphQL API endpoint
     }),
     endpoints: (builder) => ({
         getUsers: builder.query<Data, void>({
