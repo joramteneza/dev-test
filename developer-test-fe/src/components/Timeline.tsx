@@ -89,6 +89,20 @@ export function Timeline({ goals }: TimelineProps) {
     };
   }, [filteredGoals]);
 
+  // Calculate spacing between goals
+  const calculateSpacing = (currentGoal: Goal, index: number) => {
+    if (index === 0 || !showTimeBetweenEvents || !currentGoal.timestamp) return 0
+
+    const prevGoal = goalsWithTimestamps[index - 1]
+    if (!prevGoal.timestamp) return 0
+
+    const timeDiff = currentGoal.timestamp - prevGoal.timestamp
+    const daysDiff = timeDiff / (1000 * 60 * 60 * 24)
+
+    // Scale the spacing: 1 month ≈ 30px, with a minimum of 48px
+    return Math.max(10, daysDiff * 0.2)
+  }
+
   return (
     <div className="relative">
       {/* Sticky Filter Controls */}
@@ -131,6 +145,7 @@ export function Timeline({ goals }: TimelineProps) {
 
         <div className="space-y-0">
           {filteredGoals.map((goal, index) => {
+            const spacing = calculateSpacing(goal, index)
             const isLeft = isDesktop ? index % 2 === 0 : false;
             const date = formatDateWithOrdinal(goal.date);
 
@@ -140,8 +155,9 @@ export function Timeline({ goals }: TimelineProps) {
                 className={cn(
                   "relative timeline-goal",
                   isDesktop ? "mx-auto grid grid-cols-2 gap-4 items-center" : "pl-12",
-                  "mt-5"
+                  index > 0 && spacing > 0 ? `mt-${Math.min(24, Math.floor(spacing / 4))}` : "mt-5",
                 )}
+                style={index > 0 && spacing > 0 ? { marginTop: `${spacing}px` } : {}}
                 data-date={goal.date}
               >
                 {/* Timeline dot */}
