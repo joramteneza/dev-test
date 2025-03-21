@@ -51,17 +51,14 @@ const UserGoals: React.FC = () => {
 
     return (
         <div className="container mx-auto px-4 py-8 max-w-5xl">
-            <div className="mb-8">
-                <Link to="/" key='home' >
-                    <Button variant="ghost" className="pl-0">
+            <div className="mb-8 w-fit">
+                <Link to="/" key='home' className=' w-fit'>
+                    <Button variant="ghost" className="flex items-center pl-0 cursor-pointer hover:bg-light-gray-200">
                         <ChevronLeft className="mr-2 h-4 w-4" />
                         Back to Users
                     </Button>
                 </Link>
-                {/* <h1 className="text-3xl font-bold mt-4">{user?.name}'s Financial Goals</h1> */}
-                <p className="text-gray-600 mt-2">Timeline of financial and life milestones</p>
             </div>
-
             <div className="p-6 rounded-lg">
                 <Timeline goals={data.goals} />
             </div>
