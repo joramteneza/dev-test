@@ -1,11 +1,9 @@
-// src/App.tsx
-import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from './store/store'; // Redux store
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import UserGoals from './pages/UserGoals';
-// import Goals from './pages/Goals';
+import React from "react";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import UserGoals from "./pages/UserGoals";
 
 const App: React.FC = () => {
   return (
